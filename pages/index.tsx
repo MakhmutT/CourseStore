@@ -1,5 +1,5 @@
 import type { GetStaticProps } from 'next';
-import { Button, Htag, P, Rating, Tag } from '../components';
+import { Button, Htag, Input, P, Rating, Tag, Textarea } from '../components';
 import { useState } from 'react';
 import { withLayout } from '../layout/Layout';
 import axios from "axios";
@@ -7,6 +7,7 @@ import { MenuItem } from '../interfaces/menu.interface';
 
 const Home = ({ menu }: HomeProps) => {
   const [rating, setRating] = useState<number>(4);
+
   return (
     <>
       <Htag tag='h3'>asd</Htag>
@@ -20,6 +21,8 @@ const Home = ({ menu }: HomeProps) => {
       <Tag size="S" color="green">green</Tag>
       <Tag color="primary">primary</Tag>
       <Rating rating={rating} isEditable={true} setRating={setRating} />
+      <Input placeholder='test' />
+      <Textarea placeholder='texsx' />
     </>
   );
 };
