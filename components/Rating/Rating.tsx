@@ -57,7 +57,7 @@ export const Rating = ({ isEditable = false, rating, setRating, ...props }: Rati
 	};
 
 	return (
-		<div {...props}>
+		<div style={{ whiteSpace: "nowrap" }} {...props}>
 			{ratingArray.map((r, i) => (<span key={i}>{r}</span>))}
 		</div>
 	);

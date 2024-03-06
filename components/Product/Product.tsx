@@ -1,16 +1,11 @@
 import { ProductProps } from "./Product.props";
 import styles from "./Product.module.css";
 import cn from "classnames";
-import { Card } from '../Card/Card';
-import { Rating } from '../Rating/Rating';
-import { Tag } from '../Tag/Tag';
-import { Button } from '../Button/Button';
 import { declOfNum, priceRu } from '../../helpers/helpers';
-import { Divider } from '../Divider/Divider';
 import Image from 'next/image';
 import skillBoxImage from "./skillbox.png";
 import { useReview } from './model';
-import { Review } from '../Review/Review';
+import { ReviewForm, Review, Divider, Rating, Card, Tag, Button } from '../index';
 
 export const Product = ({ product }: ProductProps): JSX.Element => {
 	const {
@@ -87,8 +82,12 @@ export const Product = ({ product }: ProductProps): JSX.Element => {
 				[styles.closed]: !isReviewOpened
 			})}>
 				{product.reviews.map(r => (
-					<Review key={r._id} review={r} />
+					<>
+						<Review key={r._id} review={r} />
+						<Divider />
+					</>
 				))}
+				<ReviewForm productId={product._id} />
 			</Card>
 		</>
 	);
